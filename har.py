@@ -27,15 +27,89 @@ from sklearn.model_selection import GridSearchCV
 #think with which components added, what kind of real-world problems can be solved by it -> this shall be discussed in the conclusion part in the document
 
 '''
+Function checks for whether or not the file (parsed as a string) exists. If it does not, the function
+prints a message, an input/output error exception occurs(could not accept the input) and exits the function. 
+If the file parsed does exist then return the data frame (df)
+'''
+def load_dataset(file_name):
+    try:
+        # read dataset file
+        df = pd.read_csv('dataset/'+file_name, sep=',', header=None)
+        return df;
+    except IOError:
+        print(file_name + ' does not exist')
+        
+'''
+Function filters the data into a list of values based on the specified action. If the action_name parameter
+is not a valid string then the function prints a message, an input/output error exception occurs
+(could not accept the input) and exits the function.
+'''
+def action(file_name, action_name):
+    try:
+        if(action_name == "sitting"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 1].values;
+        elif(action_name == "lying"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 2].values;
+        elif(action_name == "standing"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 3].values;
+        elif(action_name == "washing dishes"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 4].values;
+        elif(action_name == "vacuuming"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 5].values;
+        elif(action_name == "sweeping"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 6].values;
+        elif(action_name == "walking outside"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 7].values;
+        elif(action_name == "ascending stairs"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 8].values;
+        elif(action_name == "descending stairs"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 9].values;
+        elif(action_name == "treadmill running"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 10].values;
+        elif(action_name == "bicycling (50 watt)"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 11].values;
+        elif(action_name == "bicycling (100 watt)"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 12].values;
+        elif(action_name == "rope jumping"):
+            return load_dataset(file_name)[load_dataset(file_name)[24] == 13].values;
+    except IOError:
+        print(action_name + ' is not a valid action')
+        
+'''
+Function creates a dictionary with each element holding the index of their respective sensor data. 
+If the sensor_group parameter is not a valid string then the function prints a message, 
+an input/output error exception occurs (could not accept the input) and exits the function.
+'''
+def sensor(sensor_group):
+    try:
+        sensor_dictionary = {'wrist': [0,1,2,3,4,5], 
+                             'chest' : [6, 7, 8, 9, 10, 11], 
+                             'hip' : [12, 13, 14, 15, 16, 17], 
+                             'ankle' : [18, 19, 20, 21, 22, 23]}
+        
+        if(sensor_group == "wrist"):
+            return sensor_dictionary['wrist'];
+        elif(action_name == "chest"):
+            return sensor_dictionary['chest'];
+        elif(action_name == "hip"):
+            return sensor_dictionary['hip'];
+        elif(action_name == "ankle"):
+            return sensor_dictionary['ankle'];
+    except IOError:
+        print(action_name + ' is not a valid sensor')
+
+'''
 At first, we should explore the raw time-series sensor data. We could draw line plot of sensor signals.
 In this example code, the wrist sensor accelerometer data dataset_1 sitting activity is visualized.   
 '''
-def data_visulization():
-    # read dataset file
-    df = pd.read_csv('dataset/dataset_1.txt', sep=',', header=None)
-    df_sitting = df[df[24] == 1].values
-    # In this example code, only accelerometer 1 data (column 1 to 3) is used
-    plt.plot(df_sitting[:, 0:3])
+def data_visulization(file_name, action_name, sensor_group):
+    #plot the accelerometer data for the first 3 x,y,z values
+    plt.plot(action(file_name, action_name)[:, sensor(sensor_group)[0]:sensor(sensor_group)[3]])
+    plt.title('Acceleration: x, y, z for ' + sensor_group)
+    plt.show()
+    #plot the gyroscope data for the first 3 x,y,z values
+    plt.plot(action(file_name, action_name)[:, sensor(sensor_group)[3]:sensor(sensor_group)[-1]])
+    plt.title('Rotation: x, y, z for ' + sensor_group)
     plt.show()
 
 '''
