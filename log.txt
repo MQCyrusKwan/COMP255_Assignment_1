@@ -1,0 +1,48 @@
+commit 7156fa879fe6503ffa1875b2e0b95d1cc1f9dc51
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Thu Sep 12 20:26:52 2019 +1000
+
+     Please enter the commit message fsfsfor your changes. Lines startin
+
+commit 354e4ef079dc724682c9bd2f8178eaf474f98ea5
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Thu Sep 12 20:18:35 2019 +1000
+
+    -m "moved har.py to file 'origin'"
+
+commit c7799502e0efc0479ac99cbb25286c9481470c42
+Author: MQCyrusKwan <53930025+MQCyrusKwan@users.noreply.github.com>
+Date:   Thu Sep 12 11:28:05 2019 +1000
+
+    SCRUM Documentation_45200165
+    
+    - Include sprint 1 data and burndown chart
+    - Include sprint 2 data and burndown char (incomplete)
+
+commit 6de142b547500a4ad1d7610e05ba23859c80fddc
+Author: MQCyrusKwan <53930025+MQCyrusKwan@users.noreply.github.com>
+Date:   Thu Sep 12 03:17:38 2019 +1000
+
+    Sprint 1
+    
+    Completed development for 'Load dataset' & 'Visualize data' features
+
+commit dd3c0bbc5924988d2ace2c67dee4d21ce2598d9c
+Author: MQCyrusKwan <53930025+MQCyrusKwan@users.noreply.github.com>
+Date:   Wed Sep 11 01:39:09 2019 +1000
+
+    Added SCRUM documentation
+    
+    Includes:
+    - Title page
+    - Product backlog
+    - Sprint backlog
+    - Sprint 1
+
+commit b46ec486ceb194f9508ba1e7e0115dcb73fa8afd
+Author: MQCyrusKwan <53930025+MQCyrusKwan@users.noreply.github.com>
+Date:   Tue Sep 10 01:03:48 2019 +1000
+
+    Added har.py and HAR assignment.pdf to repository
+    
+    Unedited versions of the assignment upon download from iLearn
