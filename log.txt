@@ -1,3 +1,27 @@
+commit 187329f7d5d06e6bf68e577f960a9de5843db69e
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Sat Sep 14 01:28:46 2019 +1000
+
+    added code separate from provided har.py
+
+commit 79163f5807771619da84f596b2c9c5810c2003ad
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Thu Sep 12 20:40:20 2019 +1000
+
+    Added incomplete report to the repository
+
+commit fec397fb0dd1471fc9678161b1fcafa192928f5e
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Thu Sep 12 20:35:58 2019 +1000
+
+    added log.txt that is a recording of the commits made to the repository
+
+commit c5f75d010c8e86dcb811a662b0a540c9dbb38fd7
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Thu Sep 12 20:34:12 2019 +1000
+
+    added log.txt that is a recording of the commits made to the repository
+
 commit 7156fa879fe6503ffa1875b2e0b95d1cc1f9dc51
 Author: unknown <cyrus.kwan@students.mq.edu.au>
 Date:   Thu Sep 12 20:26:52 2019 +1000
