@@ -9,6 +9,10 @@ from sklearn.metrics import make_scorer, accuracy_score, confusion_matrix
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 
+#Author: Cyrus Kwan    45200165
+#        cyrus.kwan@students.mq.edu.au
+#Date: 15 September 2019
+
 class Dataset:
     def __init__(self, data_file):
         self.data_file = data_file
