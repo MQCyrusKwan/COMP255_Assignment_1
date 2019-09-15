@@ -1,3 +1,21 @@
+commit 6f5fb8a4019a6bda21aef97624c32e1f18e2d7c6
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Sun Sep 15 10:26:54 2019 +1000
+
+    added authorship to iot_code.py
+
+commit 7ed61fcbd8cfd3d56730aac75ef4b84e0d276a9f
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Sun Sep 15 05:16:22 2019 +1000
+
+    modified 'noise removing' function to account for all classes and added basic feature extraction functionality
+
+commit 63cb0c49f81f2214d4b8067efeb7f08c78cb82be
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Sat Sep 14 01:29:44 2019 +1000
+
+    updated log of commits
+
 commit 187329f7d5d06e6bf68e577f960a9de5843db69e
 Author: unknown <cyrus.kwan@students.mq.edu.au>
 Date:   Sat Sep 14 01:28:46 2019 +1000
