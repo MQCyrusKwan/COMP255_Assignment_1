@@ -159,9 +159,9 @@ def feature_engineering(filter_type, range_from, range_to=None):
                 feature_sample.append(np.min(sample_data[:, i]))
                 feature_sample.append(np.max(sample_data[:, i]))
                 feature_sample.append(np.mean(sample_data[:, i]))
-                feature_sample.append(sample_data[0, -1])
-                feature_sample = np.array([feature_sample])
-                training = np.concatenate((training, feature_sample), axis=0)
+            feature_sample.append(sample_data[0, -1])
+            feature_sample = np.array([feature_sample])
+            training = np.concatenate((training, feature_sample), axis=0)
             
             for s in range(testing_sample_number):
                 if s < training_sample_number - 1:
@@ -182,3 +182,83 @@ def feature_engineering(filter_type, range_from, range_to=None):
     df_testing = pd.DataFrame(testing)
     df_training.to_csv('training_data.csv', index=None, header=None)
     df_testing.to_csv('testing_data.csv', index=None, header=None)
+
+'''
+When we have training and testing feature set, we could build machine learning models to recognize human activities.
+
+Please create new functions to fit your features and try other models.
+'''
+def model_training_and_evaluation_example():
+    df_training = pd.read_csv('training_data.csv', header=None)
+    df_testing = pd.read_csv('testing_data.csv', header=None)
+
+    y_train = df_training[9].values
+    # Labels should start from 0 in sklearn
+    y_train = y_train - 1
+    df_training = df_training.drop([9], axis=1)
+    X_train = df_training.values
+
+    y_test = df_testing[9].values
+    y_test = y_test - 1
+    df_testing = df_testing.drop([9], axis=1)
+    X_test = df_testing.values
+    
+    # Feature normalization for improving the performance of machine learning models. In this example code, 
+    # StandardScaler is used to scale original feature to be centered around zero. You could try other normalization methods.
+    scaler = preprocessing.StandardScaler().fit(X_train)
+    X_train = scaler.transform(X_train)
+    X_test = scaler.transform(X_test)
+
+    # Build KNN classifier, in this example code
+    knn = KNeighborsClassifier(n_neighbors=3)
+    knn.fit(X_train, y_train)
+
+    # Evaluation. when we train a machine learning model on training set, we should evaluate its performance on testing set.
+    # We could evaluate the model by different metrics. Firstly, we could calculate the classification accuracy. In this example
+    # code, when n_neighbors is set to 4, the accuracy achieves 0.757.
+    y_pred = knn.predict(X_test)
+    print('Accuracy: ', accuracy_score(y_test, y_pred))
+    # We could use confusion matrix to view the classification for each activity.
+    print(confusion_matrix(y_test, y_pred))
+    
+
+    # Another machine learning model: svm. In this example code, we use gridsearch to find the optimial classifier
+    # It will take a long time to find the optimal classifier.
+    # the accuracy for SVM classifier with default parameters is 0.71, 
+    # which is worse than KNN. The reason may be parameters of svm classifier are not optimal.  
+    # Another reason may be we only use 9 features and they are not enough to build a good svm classifier. 
+    tuned_parameters = [{'kernel': ['rbf'], 'gamma': [1e-1,1e-2, 1e-3, 1e-4],
+                     'C': [1e-3, 1e-2, 1e-1, 1, 10, 100, 100]},
+                    {'kernel': ['linear'], 'C': [1e-3, 1e-2, 1e-1, 1, 10, 100]}]
+    acc_scorer = make_scorer(accuracy_score)
+    grid_obj  = GridSearchCV(SVC(), tuned_parameters, cv=10, scoring=acc_scorer)
+    grid_obj  = grid_obj .fit(X_train, y_train)
+    clf = grid_obj.best_estimator_
+    print('best clf:', clf)
+    clf.fit(X_train, y_train)
+    y_pred = clf.predict(X_test)
+    print('Accuracy: ', accuracy_score(y_test, y_pred))
+    print(confusion_matrix(y_test, y_pred))
+
+# print("# Tuning hyper-parameters for %s" % score)
+# print()
+# clf = GridSearchCV(SVC(), tuned_parameters, cv=10,
+#                    scoring=score)
+# clf.fit(x_train, y_train)
+
+if __name__ == '__main__':
+    
+    # data_visulization()
+    # noise_removing()
+    # feature_engineering_example()
+    model_training_and_evaluation_example()
+
+'''
+References:
+    https://docs.python.org/2/library/stdtypes.html#dict
+    https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.ndarray.shape.html
+    https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.butter.html
+    https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.values.html
+    https://matplotlib.org/users/pyplot_tutorial.html
+    https://wiki.python.org/moin/HandlingExceptions
+'''
