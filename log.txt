@@ -1,12 +1,28 @@
-<<<<<<< HEAD
+commit 0279092fa3d52cbf8f00196d70b69ec918edc3b3
+Merge: 2d106fe a06fa19
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Sun Sep 15 10:41:41 2019 +1000
+
+    made changes to report
+
+commit 2d106fed7a9603515acc5e146716b78b3b3a3f65
+Author: unknown <cyrus.kwan@students.mq.edu.au>
+Date:   Sun Sep 15 10:27:49 2019 +1000
+
+    updated log.txt
+
 commit 6f5fb8a4019a6bda21aef97624c32e1f18e2d7c6
 Author: unknown <cyrus.kwan@students.mq.edu.au>
 Date:   Sun Sep 15 10:26:54 2019 +1000
 
     added authorship to iot_code.py
 
-=======
->>>>>>> a06fa19eec8c981db0c3d344184890e78673d898
+commit a06fa19eec8c981db0c3d344184890e78673d898
+Author: MQCyrusKwan <53930025+MQCyrusKwan@users.noreply.github.com>
+Date:   Sun Sep 15 05:17:46 2019 +1000
+
+    Add files via upload
+
 commit 7ed61fcbd8cfd3d56730aac75ef4b84e0d276a9f
 Author: unknown <cyrus.kwan@students.mq.edu.au>
 Date:   Sun Sep 15 05:16:22 2019 +1000
