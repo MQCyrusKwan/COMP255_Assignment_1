@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 commit 6f5fb8a4019a6bda21aef97624c32e1f18e2d7c6
 Author: unknown <cyrus.kwan@students.mq.edu.au>
 Date:   Sun Sep 15 10:26:54 2019 +1000
 
     added authorship to iot_code.py
 
+=======
+>>>>>>> a06fa19eec8c981db0c3d344184890e78673d898
 commit 7ed61fcbd8cfd3d56730aac75ef4b84e0d276a9f
 Author: unknown <cyrus.kwan@students.mq.edu.au>
 Date:   Sun Sep 15 05:16:22 2019 +1000
